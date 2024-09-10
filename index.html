@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maze RPG Game</title>
+  
+  <!-- Include CodeMirror CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/theme/dracula.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Include CodeMirror JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/addon/hint/show-hint.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/addon/hint/show-hint.min.css">
+  
+  <script src="js/player.js" defer></script>
+  <script src="js/enemy.js" defer></script>
+  <script src="js/item.js" defer></script>
+  <script src="js/maze.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/game.js" defer></script>
+  <script src="js/editor.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+  <audio id="backgroundMusic" loop>
+    <source src="audio/music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</head>
+<body>
+  <div class="main-container">
+    <div class="command-container">
+      <h2>Help</h2>
+      <h3>Basic Commands</h3>
+      <ul>
+        <li><code>moveForward()</code></li>
+        <li><code>moveBackward()</code></li>
+        <li><code>turnLeft()</code></li>
+        <li><code>turnRight()</code></li>
+      </ul>
+      <button id="hintButton" onclick="showHint()">Show Hint</button>
+      <p id="hintDisplay" style="display: none; margin-top: 10px;"></p>
+    </div>
+    <div class="game-container">
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+      <div id="gameInfo">
+        <p id="currentLevel">Level: 1</p>
+      </div>
+      <div id="codeEditor"></div>
+      <button onclick="runCode()">Run Code</button> <!-- Ensure the button is properly styled -->
+    </div>
+    <div class="player-stats-container">
+      <img id="playerPortrait" src="images/player.png" alt="Player Portrait">
+      <div id="playerStats">
+        Health: <span id="playerHealth"></span><br>
+        Player Level: <span id="playerLevel"></span><br>
+        XP: <span id="playerXP"></span><br>
+        XP to Next Level: <span id="playerXPNext"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showHint() {
+      const currentLevel = parseInt(document.getElementById("currentLevel").textContent.split(": ")[1]);
+      const hintDisplay = document.getElementById("hintDisplay");
+
+      let hint = "";
+
+      switch (currentLevel) {
+        case 1:
+          hint = "Gunakan basic commands yang tersedia untuk mengambil kunci!";
+          break;
+        case 2:
+          hint = "Mulai dari level ini, jumlah 'run code' yang bisa dilakukan dibatasi! gunakan looping untuk menghemat jatah run!";
+          break;
+        case 3:
+          hint = "Kalahkan semua musuh untuk menyelesaikan game ini!";
+          break;
+        default:
+          hint = "Gunakan basic commands yang tersedia untuk mengambil kunci!";
+      }
+
+      hintDisplay.style.display = "block";
+      hintDisplay.textContent = hint;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.command-container {
+  width: 200px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.command-container h2 {
+  color: #4A90E2;
+  margin-bottom: 15px;
+}
+
+.command-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.command-container li {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.command-container code {
+  color: #4A90E2;
+}
+
+.game-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+canvas {
+  border: 2px solid #4A90E2;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: #f1f1f1;
+}
+
+#gameCanvas {
+  border: 2px solid #4A90E2;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: #f1f1f1;
+}
+
+#gameInfo {
+  margin-bottom: 10px;
+}
+
+#playerStats {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#codeEditor {
+  width: 100%;
+  height: 200px;
+  margin-top: 15px;
+}
+
+.CodeMirror {
+  height: 100%;
+}
+
+button {
+  background-color: #4A90E2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.player-stats-container {
+  width: 250px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#playerPortrait {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+#playerStats {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .command-container, .player-stats-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  #gameCanvas {
+    width: 100%;
+    height: auto;
+  }
+}
+
+button:hover {
+  background-color: #357ABD;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .main-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .command-container {
+    margin-bottom: 0;
+  }
+}
