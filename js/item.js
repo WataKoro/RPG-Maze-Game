@@ -22,7 +22,7 @@ const items = {
   "healthPotion": {
     color: "green",  // Health potion color
     effect: function() {
-      alert("You found a health potion! Health restored.");
+      alert("kamu menemukan health potion! Health pulih.");
       player.health = Math.min(player.maxHealth, player.health + 50);
       updateStatsUI();
     }
@@ -35,7 +35,7 @@ const items = {
         alert("You found the key in Level 3! You win the game!");
         winGame();  // Trigger win game function
       } else {
-        alert("You found a key! You can now access Level 2.");
+        alert("Kamu menemukan key! lanjut ke level 2.");
         inventory.push("key");
         switchToLevel(currentLevel + 1);  // Switch to next level when the key is collected
       }

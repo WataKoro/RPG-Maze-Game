@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maze RPG Game</title>
+  <title>Dungeon RPG Game</title>
   
   <!-- Include CodeMirror CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.css">
@@ -31,9 +31,31 @@
   </audio>
 </head>
 <body>
+
+  <!-- Pop-up Intro Modal -->
+  <div id="introModal">
+    <div id="introModalContent">
+      <h1>Welcome to Qingque's Maze Adventure!</h1>
+      <p> Bantu Qingque menavigasi labirin, kalahkan musuh, dan selesaikan setiap level menggunakan keterampilan codingmu!</p>
+      <button id="startButton" onclick="startGame()">Start</button>
+    </div>
+  </div>
+
+  <!-- Credits Popup -->
+<div id="creditsPopup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closeCredits()">&times;</span>
+    <h2>Credits</h2>
+    <p>Developer: Irfan Mochamad Esa</p>
+    <p>Artwork: COGNOSPHERE PTE. LTD.</p>
+    <p>Audio: Konami Digital Entertainment</p>
+    <button onclick="closeCredits()">Tutup</button>
+  </div>
+</div>
+
   <div class="main-container">
     <div class="command-container">
-      <h2>Help</h2>
+      <h2>Instruction</h2>
       <h3>Basic Commands</h3>
       <ul>
         <li><code>moveForward()</code></li>
@@ -41,7 +63,8 @@
         <li><code>turnLeft()</code></li>
         <li><code>turnRight()</code></li>
       </ul>
-      <button id="hintButton" onclick="showHint()">Show Hint</button>
+      <button id="hintButton" onclick="showHint()">Show Instruction</button>
+      <button id="showCreditsButton" onclick="showCredits()">Credits</button>
       <p id="hintDisplay" style="display: none; margin-top: 10px;"></p>
     </div>
     <div class="game-container">
@@ -50,7 +73,7 @@
         <p id="currentLevel">Level: 1</p>
       </div>
       <div id="codeEditor"></div>
-      <button onclick="runCode()">Run Code</button> <!-- Ensure the button is properly styled -->
+      <button onclick="runCode()">Run Code</button>
     </div>
     <div class="player-stats-container">
       <img id="playerPortrait" src="images/player.png" alt="Player Portrait">
@@ -64,6 +87,11 @@
   </div>
 
   <script>
+    function startGame() {
+      document.getElementById("introModal").style.display = "none";
+      document.getElementById("backgroundMusic").play();
+    }
+
     function showHint() {
       const currentLevel = parseInt(document.getElementById("currentLevel").textContent.split(": ")[1]);
       const hintDisplay = document.getElementById("hintDisplay");
@@ -86,6 +114,13 @@
 
       hintDisplay.style.display = "block";
       hintDisplay.textContent = hint;
+    }
+    function showCredits() {
+      document.getElementById("creditsPopup").style.display = "block";
+    }
+    
+    function closeCredits() {
+      document.getElementById("creditsPopup").style.display = "none";
     }
   </script>
 </body>

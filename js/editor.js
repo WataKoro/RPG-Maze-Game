@@ -42,7 +42,7 @@ const editor = CodeMirror(document.getElementById('codeEditor'), {
     const usingFinishGame = code.includes("finishGame()");
     
     if (usingFinishGame && currentLevel !== 3) {
-      alert("The 'finishGame()' command can only be used in level 3 after defeating all enemies.");
+      alert("Command 'finishGame()' hanya bisa digunakan di level 3 ketika sudah mengalahkan semua musuh");
       return false;  // Stop the game from running
     }
     return true;
@@ -51,7 +51,7 @@ const editor = CodeMirror(document.getElementById('codeEditor'), {
   function runCode() {
     if (currentLevel >= 2) {
       if (runCount >= maxRuns) {
-        alert("You have exceeded the number of allowed code executions. Try using loops to solve the puzzle.");
+        alert("Kamu melebihi batas run code, gunakan looping untuk menghemat run code!");
         resetGame();
       }
     }

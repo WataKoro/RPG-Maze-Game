@@ -33,7 +33,7 @@ function levelUp() {
   player.level++;
   player.xp -= player.xpToNextLevel;
   player.xpToNextLevel = Math.floor(player.xpToNextLevel * 1.5);
-  alert(`Level Up! You are now level ${player.level}`);
+  alert(`Level Up! Kamu level ${player.level}`);
   player.maxHealth += 20;  // Increase max health
   player.health = player.maxHealth;  // Fully restore health
 }
@@ -104,10 +104,10 @@ function turnRight() {
 function finishGame() {
   checkAllEnemiesDefeated();
   if (finishGameAllowed) {
-    alert("Congratulations! You have finished the game!");
+    alert("Selamat! Kamu telah menyelesaikan game ini!");
     winGame();
   } else {
-    alert("You cannot finish the game yet! Defeat all enemies first.");
+    alert("Belum bisa! kalahkan semua musuh di level 3 dulu.");
   }
 }
 
@@ -120,7 +120,7 @@ function killAllEnemies() {
   enemies.forEach(enemy => {
     enemy.defeated = true;
   });
-  console.log("All enemies have been defeated!");
+  console.log("Semua musuh kalah!");
 
   drawGame();
   updateGameState();

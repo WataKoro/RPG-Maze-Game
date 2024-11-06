@@ -76,7 +76,7 @@ function checkAllEnemiesDefeated() {
 
 function allowFinishGameCommand() {
   finishGameAllowed = true;
-  alert("You have defeated all enemies! You can now use 'finishGame()' to end the game.");
+  alert("Kamu sudah mengalahkan semua musuh! panggil finishGame() untuk selesai");
 }
 
 function updateLevelUI() {
